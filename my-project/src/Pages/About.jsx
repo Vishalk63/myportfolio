@@ -10,8 +10,8 @@ function About() {
     <>
       <div id='about' className='overflow-hidden w-full h-full py-9 flex justify-center items-center  dark:bg-black  '>
         <motion.div
-          initial={{ x: 50 }}
-          whileInView={{ x: 0 }}
+          initial={{ y: 100 }}
+          whileInView={{ y: 0 }}
           transition={{ duration: 1 }}
         >
           <Card className="w-[350px] md:w-[700px] space-y-7 p-10 dark:bg-neutral-950 bg-white backdrop-blur-md bg-opacity-5 text-white">

@@ -12,6 +12,16 @@ import {
 } from "@/components/ui/card"
 
 function Home() {
+
+  function handleResume (){
+    toast.info("We will update soon")
+
+    const fileUrl = "/resume.pdf"; // Resume file location
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.download = "Vishal_Shivaji_Kachare_Resume.pdf";
+    link.click();
+  }
   return (
     
     
@@ -20,7 +30,7 @@ function Home() {
       <motion.div
       initial={{opacity:0}}
       whileInView={{opacity:1}}
-    //   transition={{duration:1}}
+      
       >
         <Card id="#home" className="overflow-hidden w-auto h-full backdrop-blur-md bg-white bg-opacity-5 shadow-lg dark:bg-neutral-950 flex flex-col justify-between p-3 gap-2 ">        {/* -------- */}
 
@@ -76,7 +86,7 @@ function Home() {
               whileInView={{ x: 0 }}
               transition={{ duration: 1 }}
             >
-              <Button variant="outline" onClick={()=>toast.info("We will update soon")}>Resume</Button>
+              <Button variant="outline" onClick={handleResume}>Resume</Button>
             </motion.div>
           </CardFooter>
 
