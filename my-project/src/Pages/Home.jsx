@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../images/profile2.jpg';
+import logo from '../images/profile3.jpg';
 import { motion } from 'framer-motion'
 import { Facebook, Github, Instagram, Linkedin } from 'lucide-react';
 import { toast } from 'sonner'
