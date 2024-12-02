@@ -2,7 +2,7 @@ import React from 'react'
 import logo from '../images/profile2.jpg';
 import { motion } from 'framer-motion'
 import { Facebook, Github, Instagram, Linkedin } from 'lucide-react';
-import { Toaster, toast } from 'sonner'
+import { toast } from 'sonner'
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -16,7 +16,7 @@ function Home() {
     
     
     <div id='home' className='w-full min-h-screen h-full pt-20 py-10 flex justify-center items-center dark:bg-black overflow-hidden '>
-      <Toaster/>
+      
       <motion.div
       initial={{opacity:0}}
       whileInView={{opacity:1}}

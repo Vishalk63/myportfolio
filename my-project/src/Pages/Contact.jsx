@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { useState } from 'react'
 import svganimation from '../svg/svganimation.json'
 import {
   Card,
@@ -15,8 +15,33 @@ import {
 import { Textarea } from "@/components/ui/textarea"
 import { User } from 'lucide-react'
 import Lottie from 'lottie-react'
+import { toast } from 'sonner'
 
 function Contact() {
+
+  const [firstName,setFirstName]=useState('')
+  const [lastName,setLastName]= useState('')
+  const [email,setEmail]=useState('')
+  const [textarea,setTextArea]=useState('')
+
+
+  function handleSubmit(e){
+    // e.preventDefault()
+    // alert('kesa he biduddddddddddd')
+    sendEmail();
+    setFirstName('')
+    setLastName('')
+    setEmail('')
+    setTextArea('')
+    toast.success('You are redirecting to Your Email')
+  }
+
+  const sendEmail = () => {
+    const mailtoLink = `mailto:vishalkachare323@gmail.com?subject=Contact Form Submission&body=Hi, I am ${firstName} ${lastName}. My email is ${email}. Message: ${textarea}`;
+    
+    window.location.href = mailtoLink;
+  };
+
   return (
     <div id='contact' className='overflow-hidden w-full h-full flex justify-center items-center text-white py-16 dark:bg-black'>
       <div>
@@ -33,7 +58,7 @@ function Contact() {
               <img className='rounded-md' src="https://img.freepik.com/free-vector/organic-flat-people-business-training-illustration_52683-59856.jpg?semt=ais_hybrid" alt="" />
             </div> */}
 
-            <div>
+            <div >
               <Lottie className='' animationData={svganimation}></Lottie>
             </div>
             <motion.div
@@ -48,33 +73,33 @@ function Contact() {
                 </CardHeader>
                 <CardContent>
                   <form>
-                    <div className="grid w-full items-center gap-4">
+                    <div  className="grid w-full items-center gap-4">
                       <div className="flex flex-col space-y-1.5">
                         <Label htmlFor="firstName">First Name</Label>
-                        <Input className='dark:bg-neutral-800 placeholder:text-white bg-white backdrop-blur-md bg-opacity-5' id="firstName" placeholder="Enter Your Name" />
+                        <Input value={firstName} onChange={(e)=>setFirstName(e.target.value)} className='dark:bg-neutral-800 placeholder:text-white bg-white backdrop-blur-md bg-opacity-5' id="firstName" placeholder="Enter Your Name" />
                       </div>
 
                       <div className="flex flex-col space-y-1.5">
                         <Label htmlFor="lastName">Last Name</Label>
-                        <Input className='dark:bg-neutral-800 placeholder:text-white bg-white backdrop-blur-md bg-opacity-5' id="lastName" placeholder="Enter Last Name" />
+                        <Input value={lastName} onChange={(e)=>setLastName(e.target.value)} className='dark:bg-neutral-800 placeholder:text-white bg-white backdrop-blur-md bg-opacity-5' id="lastName" placeholder="Enter Last Name" />
                       </div>
 
                       <div className="flex flex-col space-y-1.5">
                         <Label htmlFor="email">Email</Label>
-                        <Input className='dark:bg-neutral-800 placeholder:text-white bg-white backdrop-blur-md bg-opacity-5' type="email" id="email" placeholder="Enter Email" />
+                        <Input value={email} onChange={(e)=>setEmail(e.target.value)} className='dark:bg-neutral-800 placeholder:text-white bg-white backdrop-blur-md bg-opacity-5' type="email" id="email" placeholder="Enter Email" />
                       </div>
 
-                      <Textarea className='dark:bg-neutral-800 placeholder:text-white bg-white backdrop-blur-md bg-opacity-5' placeholder="Type your message here." />
+                      <Textarea  value={textarea} onChange={(e)=>setTextArea(e.target.value)} className='dark:bg-neutral-800 placeholder:text-white bg-white backdrop-blur-md bg-opacity-5' placeholder="Type your message here." />
 
                     </div>
-                  </form>
+                  </form >
                 </CardContent>
                 <CardFooter className="flex justify-between">
                   <motion.div 
                   whileHover={{scale:1.1}}
                   whileTap={{scale:1.5}}
                   >
-                  <Button>Send</Button>
+                  <Button onClick={handleSubmit}>Send</Button>
                   </motion.div>
                 </CardFooter>
               </Card>
