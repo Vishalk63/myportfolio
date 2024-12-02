@@ -17,7 +17,7 @@ function App() {
 
     <myContext.Provider value={{dark,setDark}}>
       <div className={`${dark && "dark "}`}>
-        <div className='bg-[url("https://i.pinimg.com/736x/b2/fb/21/b2fb21f206c56acc2007ed7e587d9770.jpg")] bg-fixed bg-cover'>
+        <div className='bg-[url("https://i.pinimg.com/736x/b2/fb/21/b2fb21f206c56acc2007ed7e587d9770.jpg")] bg-fixed bg-cover scroll-smooth'>
           <div>
             <Navbar />
             <Home />
