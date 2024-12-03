@@ -14,7 +14,7 @@ import {
 function Home() {
 
   function handleResume (){
-    toast.info("We will update soon")
+    toast.info("Please Wait")
 
     const fileUrl = "/resume.pdf"; // Resume file location
     const link = document.createElement("a");
